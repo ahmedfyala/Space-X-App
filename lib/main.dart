@@ -1,22 +1,14 @@
 import 'package:flutter/material.dart';
 
+import 'core/di/dependency_injection.dart';
+import 'core/routing/app_router.dart';
+import 'my_app.dart';
+
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  setupGetIt();
+
+  runApp(MyApp(
+    appRouter: AppRouter(),
+  ));
 }
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-    );
-  }
-}
-
