@@ -42,6 +42,7 @@ dependencies:
 # Networking
   dio:
   pretty_dio_logger:
+  dartz:
 # UI
   flutter_screenutil:
   flutter_svg:
