@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_mentorship_b1/core/themes/colors_manager.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import 'core/constants/app_strings.dart';
 import 'core/routing/app_router.dart';
 import 'core/routing/routes.dart';
+import 'core/themes/theme_manager.dart';
 
 class MyApp extends StatelessWidget {
   final AppRouter appRouter;
@@ -15,22 +13,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //TODO  width and height in designSize
     return ScreenUtilInit(
-      designSize: const Size(375, 812),
+      designSize: const Size(375, 667),
       minTextAdapt: true,
       child: MaterialApp(
         title: AppStrings.appName,
-        theme: ThemeData(
-          scaffoldBackgroundColor: ColorsManager.black,
-          appBarTheme: const AppBarTheme(
-            systemOverlayStyle: SystemUiOverlayStyle(
-              statusBarIconBrightness: Brightness.dark,
-              statusBarColor: Colors.transparent,
-            ),
-          ),
-          useMaterial3: true,
-        ),
+        theme: getApplicationTheme(),
         debugShowCheckedModeBanner: false,
         initialRoute: Routes.homeScreen,
         onGenerateRoute: appRouter.generateRoute,
