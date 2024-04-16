@@ -12,7 +12,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),
         );
-      case Routes.SearchScreen:
+      case Routes.searchScreen:
         return MaterialPageRoute(
           builder: (_) => const Search(),
         );
