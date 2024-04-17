@@ -5,4 +5,5 @@ class AppStrings {
   static const String rockets = 'Rockets';
   static const String ships = 'Ships';
   static const String launches = 'Launches';
+  static const String noRocketsFound = 'No Rockets Founded';
 }

@@ -1,6 +1,6 @@
 class Routes {
-  // MARK: - 🏠 Home.
   static const String homeScreen = "/homeScreen";
-  static const String profileScreen = "profileScreen";
-  static const String searchScreen = "searchScreen";
+  static const String profileScreen = "/profileScreen";
+  static const String searchScreen = "/searchScreen";
+  static const String allRockets = "/allRockets";
 }

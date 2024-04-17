@@ -21,7 +21,11 @@ class CategoriesListWidget extends StatelessWidget {
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => CategoriesItemWidget(
-          onTap: () {},
+          onTap: () {
+            if (index == 0) {
+              context.pushReplacementNamed(Routes.allRockets);
+            }
+          },
           categoryModel: categories[index],
         ),
         separatorBuilder: (context, index) => SizedBox(
