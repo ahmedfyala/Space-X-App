@@ -12,6 +12,8 @@ ThemeData getApplicationTheme() {
     scaffoldBackgroundColor: ColorsManager.black,
     canvasColor: ColorsManager.lightBlack,
     appBarTheme: const AppBarTheme(
+      iconTheme: IconThemeData(color: ColorsManager.white),
+      titleTextStyle: TextStyle(color: ColorsManager.white),
       elevation: 0,
       backgroundColor: ColorsManager.black,
       systemOverlayStyle: SystemUiOverlayStyle(
@@ -20,6 +22,7 @@ ThemeData getApplicationTheme() {
       ),
     ),
     useMaterial3: true,
+    iconTheme: const IconThemeData(color: ColorsManager.white),
     navigationBarTheme: NavigationBarThemeData(
       backgroundColor: ColorsManager.lightBlack,
       labelTextStyle: MaterialStateProperty.resolveWith<TextStyle>(
