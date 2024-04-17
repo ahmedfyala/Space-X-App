@@ -10,9 +10,12 @@ ThemeData getApplicationTheme() {
     primaryColorLight: ColorsManager.primary,
     primaryColorDark: ColorsManager.primary,
     scaffoldBackgroundColor: ColorsManager.black,
+    canvasColor: ColorsManager.lightBlack,
     appBarTheme: const AppBarTheme(
+      elevation: 0,
+      backgroundColor: ColorsManager.black,
       systemOverlayStyle: SystemUiOverlayStyle(
-        statusBarIconBrightness: Brightness.dark,
+        statusBarIconBrightness: Brightness.light,
         statusBarColor: Colors.transparent,
       ),
     ),

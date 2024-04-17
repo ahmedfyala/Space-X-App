@@ -19,11 +19,13 @@ class _HomeScreenState extends State<HomeScreen> {
     Search(),
     Profile(),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: screens[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        useLegacyColorScheme: false,
         onTap: (index) {
           setState(() {
             selectedIndex = index;
