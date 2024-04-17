@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/themes/colors_manager.dart';
 import '../../profile/ui/profile_screen.dart';
 import '../../search/ui/search_screen.dart';
 import '../../space/ui/space_screen.dart';
@@ -25,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: screens[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        unselectedItemColor: ColorsManager.white,
         useLegacyColorScheme: false,
         onTap: (index) {
           setState(() {
