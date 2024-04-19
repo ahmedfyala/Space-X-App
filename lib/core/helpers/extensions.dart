@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mentorship_b1/features/ships/logic/states.dart';
 
 import '../networking/error_handler/failure.dart';
 import '../networking/error_handler/response_code.dart';
@@ -194,3 +195,12 @@ extension HttpStatusCodeExtensions on HttpStatusCodeEnum {
     }
   }
 }
+
+extension MainExtensions on ShipStatus {
+  bool get isSuccess => this == ShipStatus.success;
+
+  bool get isError => this == ShipStatus.error;
+
+  bool get isLoading => this == ShipStatus.lodaeng;
+}
+
