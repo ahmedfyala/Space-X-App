@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         title: AppStrings.appName,
         theme: getApplicationTheme(),
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.homeScreen,
+        initialRoute: Routes.ships,
         onGenerateRoute: appRouter.generateRoute,
       ),
     );
