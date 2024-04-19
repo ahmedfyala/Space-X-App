@@ -10,13 +10,19 @@ ThemeData getApplicationTheme() {
     primaryColorLight: ColorsManager.primary,
     primaryColorDark: ColorsManager.primary,
     scaffoldBackgroundColor: ColorsManager.black,
+    canvasColor: ColorsManager.lightBlack,
     appBarTheme: const AppBarTheme(
+      iconTheme: IconThemeData(color: ColorsManager.white),
+      titleTextStyle: TextStyle(color: ColorsManager.white),
+      elevation: 0,
+      backgroundColor: ColorsManager.black,
       systemOverlayStyle: SystemUiOverlayStyle(
-        statusBarIconBrightness: Brightness.dark,
+        statusBarIconBrightness: Brightness.light,
         statusBarColor: Colors.transparent,
       ),
     ),
     useMaterial3: true,
+    iconTheme: const IconThemeData(color: ColorsManager.white),
     navigationBarTheme: NavigationBarThemeData(
       backgroundColor: ColorsManager.lightBlack,
       labelTextStyle: MaterialStateProperty.resolveWith<TextStyle>(
