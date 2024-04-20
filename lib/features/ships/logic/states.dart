@@ -32,6 +32,6 @@ class ShipStates {
 
   ShipStates.success(
     this.shipStatus,
-    List<ShipModel> this.ships,
+    this.ships,
   );
 }

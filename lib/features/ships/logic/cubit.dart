@@ -8,14 +8,17 @@ class ShipCubit extends Cubit<ShipStates> {
 
   void getAllShips() async {
     emit(state.cobyWith(shipStatus: ShipStatus.lodaeng));
-    var ships = state.ships?.toList();
-    (await shipRepository.getAllShips()).fold((failure) {
+
+    (await shipRepository.getAllShips()).fold((
+      failure,
+    ) {
       emit(
         state.cobyWith(
             shipStatus: ShipStatus.error, errorMessage: failure.message),
       );
     }, (data) {
-      emit(state.cobyWith(shipStatus: ShipStatus.success, ships: ships));
+      state.ships = data;
+      emit(state.cobyWith(shipStatus: ShipStatus.success, ships: data));
     });
   }
 }

@@ -19,14 +19,14 @@ class ShipRepository {
   Future<Either<Failure, List<ShipModel>>> getAllShips() async {
     if (await networkInfo.isConnected) {
       try {
-        final response = await apiService.get(endPoint: ApiUrls.allShips) as List;
+        final response =
+            await apiService.get(endPoint: ApiUrls.allShips) as List;
         List<ShipModel> ships = [];
-print('!!!!!!!!!!!!!');
+
         ships = response.map((e) => ShipModel.fromJson(e)).toList();
-        print('@@@@@@@@@@@@@@');
+
         return Right(ships);
       } catch (error) {
-        print('%%%%%%%%%%%%%');
         return Left(ErrorHandler.handel(error).failure);
       }
     } else {

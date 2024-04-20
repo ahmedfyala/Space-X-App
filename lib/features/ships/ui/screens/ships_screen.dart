@@ -3,6 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mentorship_b1/core/helpers/extensions.dart';
 import 'package:flutter_mentorship_b1/features/ships/logic/cubit.dart';
 import 'package:flutter_mentorship_b1/features/ships/logic/states.dart';
+import 'package:flutter_mentorship_b1/features/ships/ui/widgets/ship_item_in_list.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../core/constants/app_strings.dart';
+import '../../../../core/themes/styles.dart';
 
 class ShipsScreen extends StatefulWidget {
   const ShipsScreen({super.key});
@@ -15,7 +20,12 @@ class _ShipsScreenState extends State<ShipsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          title: Text(
+            AppStrings.ships,
+            style: TextStyles.font24Bold,
+          ),
+        ),
         body: BlocBuilder<ShipCubit, ShipStates>(
           builder: (context, state) {
             if (state.shipStatus.isLoading) {
@@ -29,11 +39,23 @@ class _ShipsScreenState extends State<ShipsScreen> {
               );
             }
             if (state.shipStatus.isSuccess) {
-              return  Center(
-                child: Text(state.ships![0].shipName.toString()),
+              return Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: ListView.separated(
+                  itemCount: state.ships!.length,
+                  separatorBuilder: (context, index) => SizedBox(
+                    height: 20.sh,
+                  ),
+                  itemBuilder: (context, index) {
+                    return ShipItemInList(
+                      image: state.ships![index].imageUrl.toString(),
+                      name: state.ships![index].shipName.toString(),
+                    );
+                  },
+                ),
               );
-            }
-            return const SizedBox.shrink();
+            }else{return const Center(child: Text('error ui'));}
+
           },
         ));
   }
