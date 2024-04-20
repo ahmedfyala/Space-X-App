@@ -6,6 +6,7 @@ import 'package:flutter_mentorship_b1/features/rockets/ui/rockets_screen.dart';
 import 'package:flutter_mentorship_b1/features/search/ui/search_screen.dart';
 
 import '../../features/home/ui/home_screen.dart';
+import '../../features/splash/ui/splash_screen.dart';
 import '../di/dependency_injection.dart';
 import 'routes.dart';
 
@@ -30,6 +31,10 @@ class AppRouter {
             create: (context) => getIt<AllRocketsCubit>()..fetchAllRockets(),
             child: const RocketsScreen(),
           ),
+        );
+      case Routes.splash:
+        return MaterialPageRoute(
+          builder: (_) => const SplashScreen(),
         );
       default:
         return MaterialPageRoute(

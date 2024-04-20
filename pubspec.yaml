@@ -28,8 +28,9 @@ dependencies:
 # UI
   flutter_screenutil:
   flutter_svg:
+  lottie:
 # Data Storage
-  shared_preferences: ^2.2.2
+  shared_preferences:
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +52,7 @@ flutter:
    - assets/images/
    - assets/svg/
    - assets/png/
+   - assets/lottie/
 
   fonts:
       - family: Roboto
