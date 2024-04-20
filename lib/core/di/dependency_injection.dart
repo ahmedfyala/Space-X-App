@@ -39,7 +39,6 @@ Future<void> setupGetIt() async {
     ),
   );
 
-  getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
   getIt.registerLazySingleton<AllRocketsRepo>(
       () => AllRocketsRepo(apiService: getIt()));
   getIt.registerLazySingleton<AllRocketsCubit>(

@@ -25,6 +25,9 @@ class CategoriesListWidget extends StatelessWidget {
             if (index == 0) {
               context.pushReplacementNamed(Routes.allRockets);
             }
+            if (index == 1) {
+              context.pushReplacementNamed(Routes.ships);
+            }
           },
           categoryModel: categories[index],
         ),
