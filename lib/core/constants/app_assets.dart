@@ -14,5 +14,5 @@ class AppPng {
 class AppSvgs {}
 
 class AppLottie {
-  static const String rocket = '${AssetsPaths.lottie}/loading.json';
+  static const String rocket = '${AssetsPaths.lottie}/rocket.json';
 }
