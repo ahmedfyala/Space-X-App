@@ -28,6 +28,7 @@ dependencies:
 # UI
   flutter_screenutil:
   flutter_svg:
+  gap:
 # Data Storage
   shared_preferences: ^2.2.2
 
@@ -48,9 +49,9 @@ flutter:
 
 
   assets:
-   - assets/images/
+
    - assets/svg/
-   - assets/png/
+   - assets/png/control-panel.png
 
   fonts:
       - family: Roboto

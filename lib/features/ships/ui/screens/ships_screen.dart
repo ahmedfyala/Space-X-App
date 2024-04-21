@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mentorship_b1/core/helpers/extensions.dart';
+import 'package:flutter_mentorship_b1/core/themes/size_manager.dart';
 import 'package:flutter_mentorship_b1/features/ships/logic/cubit.dart';
 import 'package:flutter_mentorship_b1/features/ships/logic/states.dart';
 import 'package:flutter_mentorship_b1/features/ships/ui/widgets/ship_item_in_list.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
 import '../../../../core/constants/app_strings.dart';
 import '../../../../core/themes/styles.dart';
@@ -40,11 +42,11 @@ class _ShipsScreenState extends State<ShipsScreen> {
             }
             if (state.shipStatus.isSuccess) {
               return Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(AppPadding.p10),
                 child: ListView.separated(
                   itemCount: state.ships!.length,
-                  separatorBuilder: (context, index) => SizedBox(
-                    height: 20.sh,
+                  separatorBuilder: (context, index) => Gap(
+                    AppHeight.h20,
                   ),
                   itemBuilder: (context, index) {
                     return ShipItemInList(
@@ -54,8 +56,9 @@ class _ShipsScreenState extends State<ShipsScreen> {
                   },
                 ),
               );
-            }else{return const Center(child: Text('error ui'));}
-
+            } else {
+              return const Center(child: Text('error ui'));
+            }
           },
         ));
   }
