@@ -8,6 +8,7 @@ import 'package:flutter_mentorship_b1/features/search/ui/search_screen.dart';
 import 'package:flutter_mentorship_b1/features/ships/logic/cubit.dart';
 import 'package:flutter_mentorship_b1/features/ships/ui/screens/ships_screen.dart';
 
+import '../../features/splash/ui/splash_screen.dart';
 import '../../features/home/ui/home_screen.dart';
 import '../di/dependency_injection.dart';
 import 'routes.dart';
@@ -39,8 +40,6 @@ class AppRouter {
             child: const ShipsScreen(),
           ),
         );
-
-
       case Routes.allRockets:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
@@ -48,7 +47,10 @@ class AppRouter {
             child: const RocketsScreen(),
           ),
         );
-
+      case Routes.splash:
+        return MaterialPageRoute(
+          builder: (_) => const SplashScreen(),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),

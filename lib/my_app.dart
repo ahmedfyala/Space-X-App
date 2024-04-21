@@ -16,12 +16,12 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 667),
       minTextAdapt: true,
-      builder: (context,widget){
+      builder: (context, widget) {
         return MaterialApp(
           title: AppStrings.appName,
           theme: getApplicationTheme(),
           debugShowCheckedModeBanner: false,
-          initialRoute: Routes.welcome,
+          initialRoute: Routes.splash,
           onGenerateRoute: appRouter.generateRoute,
         );
       },

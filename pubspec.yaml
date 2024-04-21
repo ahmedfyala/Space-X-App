@@ -29,6 +29,7 @@ dependencies:
   flutter_screenutil:
   flutter_svg:
   gap:
+  lottie:
 # Data Storage
   shared_preferences: ^2.2.2
 
@@ -49,9 +50,12 @@ flutter:
 
 
   assets:
-
+   - assets/images/
    - assets/svg/
+   - assets/png/
+   - assets/lottie/
    - assets/png/control-panel.png
+
 
   fonts:
       - family: Roboto
