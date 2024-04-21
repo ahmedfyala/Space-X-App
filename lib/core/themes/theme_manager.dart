@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_mentorship_b1/core/themes/size_manager.dart';
+import 'package:flutter_mentorship_b1/core/themes/styles.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'colors_manager.dart';
 
@@ -11,12 +14,12 @@ ThemeData getApplicationTheme() {
     primaryColorDark: ColorsManager.primary,
     scaffoldBackgroundColor: ColorsManager.black,
     canvasColor: ColorsManager.lightBlack,
-    appBarTheme: const AppBarTheme(
-      iconTheme: IconThemeData(color: ColorsManager.white),
-      titleTextStyle: TextStyle(color: ColorsManager.white),
-      elevation: 0,
+    appBarTheme:  AppBarTheme(
+      iconTheme: const IconThemeData(color: ColorsManager.white),
+      titleTextStyle: const TextStyle(color: ColorsManager.white),
+      elevation: AppSize.s0,
       backgroundColor: ColorsManager.black,
-      systemOverlayStyle: SystemUiOverlayStyle(
+      systemOverlayStyle: const SystemUiOverlayStyle(
         statusBarIconBrightness: Brightness.light,
         statusBarColor: Colors.transparent,
       ),
@@ -35,6 +38,20 @@ ThemeData getApplicationTheme() {
             ? const IconThemeData(color: ColorsManager.primary)
             : const IconThemeData(color: ColorsManager.white),
       ),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+            (states) => ColorsManager.primary,
+          ),
+          textStyle: MaterialStateProperty.resolveWith<TextStyle?>(
+            (states) => TextStyles.font16Bold,
+          ),
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(AppRadius.r10),
+            ),
+          )),
     ),
   );
 }

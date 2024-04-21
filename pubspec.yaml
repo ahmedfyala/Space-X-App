@@ -15,7 +15,7 @@ dependencies:
     sdk: flutter
 
 
-
+  internet_connection_checker:
   cupertino_icons: ^1.0.6
 # State management.
   flutter_bloc:
@@ -28,9 +28,10 @@ dependencies:
 # UI
   flutter_screenutil:
   flutter_svg:
+  gap:
   lottie:
 # Data Storage
-  shared_preferences:
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:
@@ -53,6 +54,8 @@ flutter:
    - assets/svg/
    - assets/png/
    - assets/lottie/
+   - assets/png/control-panel.png
+
 
   fonts:
       - family: Roboto

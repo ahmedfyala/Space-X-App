@@ -16,13 +16,15 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 667),
       minTextAdapt: true,
-      child: MaterialApp(
-        title: AppStrings.appName,
-        theme: getApplicationTheme(),
-        debugShowCheckedModeBanner: false,
-        initialRoute: Routes.splash,
-        onGenerateRoute: appRouter.generateRoute,
-      ),
+      builder: (context, widget) {
+        return MaterialApp(
+          title: AppStrings.appName,
+          theme: getApplicationTheme(),
+          debugShowCheckedModeBanner: false,
+          initialRoute: Routes.splash,
+          onGenerateRoute: appRouter.generateRoute,
+        );
+      },
     );
   }
 }

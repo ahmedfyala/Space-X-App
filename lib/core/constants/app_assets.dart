@@ -8,7 +8,8 @@ class AssetsPaths {
 
 class AppImages {}
 
-class AppIcons {}
+class AppPng {
+}
 
 class AppSvgs {}
 
