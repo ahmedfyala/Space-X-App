@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_mentorship_b1/features/opening/screens/welcome/welcome_screen.dart';
 import 'package:flutter_mentorship_b1/features/profile/ui/profile_screen.dart';
 import 'package:flutter_mentorship_b1/features/rockets/logic/all_rockets_cubit.dart';
 import 'package:flutter_mentorship_b1/features/rockets/ui/rockets_screen.dart';
@@ -14,6 +15,10 @@ import 'routes.dart';
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case Routes.welcome:
+        return MaterialPageRoute(
+          builder: (_) => const WelcomeScreen(),
+        );
       case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),

@@ -13,6 +13,12 @@ class TextStyles {
     color: ColorsManager.white,
     fontFamily: fontFamily,
   );
+  static TextStyle font16light = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.light,
+    color: ColorsManager.white,
+    fontFamily: fontFamily,
+  );
   static TextStyle font16Bold = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.bold,

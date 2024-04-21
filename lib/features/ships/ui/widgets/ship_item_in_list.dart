@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_mentorship_b1/core/themes/size_manager.dart';
 
 import '../../../../core/themes/colors_manager.dart';
 import '../../../../core/themes/styles.dart';
+import 'image_network_error.dart';
 
 class ShipItemInList extends StatelessWidget {
   final String image;
@@ -18,25 +19,32 @@ class ShipItemInList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 70.h,
+      height: AppHeight.h70,
       decoration: BoxDecoration(
         color: ColorsManager.lightBlack,
-        borderRadius: BorderRadius.circular(6.r),
+        borderRadius: BorderRadius.circular(AppRadius.r6),
       ),
-      padding: const EdgeInsets.all(10.0),
+      padding: EdgeInsets.all(AppPadding.p10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            height: 64.h,
-            width: 80.w,
+            height: AppHeight.h64,
+            width: AppWidth.h80,
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(6.r),
+              borderRadius: BorderRadius.circular(AppRadius.r6),
             ),
             child: Image.network(
               image,
               fit: BoxFit.cover,
+              errorBuilder: (
+                BuildContext context,
+                Object exception,
+                StackTrace? stackTrace,
+              ) {
+                return const ImageNetworkError();
+              },
             ),
           ),
           Text(
@@ -45,7 +53,7 @@ class ShipItemInList extends StatelessWidget {
           ),
           Icon(
             Icons.arrow_forward_ios_rounded,
-            size: 20.sp,
+            size: AppSize.s20,
             color: ColorsManager.white,
           )
         ],
