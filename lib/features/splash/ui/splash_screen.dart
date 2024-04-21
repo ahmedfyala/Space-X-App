@@ -49,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen>
     Future.delayed(
       const Duration(seconds: 5),
       () {
-        context.pushNamedAndRemoveUntil(Routes.homeScreen,
+        context.pushNamedAndRemoveUntil(Routes.welcome,
             predicate: (_) => false);
       },
     );
