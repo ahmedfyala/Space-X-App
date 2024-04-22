@@ -23,10 +23,10 @@ class CategoriesListWidget extends StatelessWidget {
         itemBuilder: (context, index) => CategoriesItemWidget(
           onTap: () {
             if (index == 0) {
-              context.pushReplacementNamed(Routes.allRockets);
+              context.pushNamed(Routes.allRockets);
             }
             if (index == 1) {
-              context.pushReplacementNamed(Routes.ships);
+              context.pushNamed(Routes.ships);
             }
           },
           categoryModel: categories[index],

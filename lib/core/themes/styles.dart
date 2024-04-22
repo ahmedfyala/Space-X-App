@@ -43,6 +43,30 @@ class TextStyles {
     color: ColorsManager.darkWhite,
     fontFamily: fontFamily,
   );
+  static TextStyle font20Bold = TextStyle(
+    fontSize: 20.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsManager.white,
+    fontFamily: fontFamily,
+  );
+  static TextStyle font20RegularPrimary = TextStyle(
+    fontSize: 20.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsManager.primary,
+    fontFamily: fontFamily,
+  );
+  static TextStyle font16Regular = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsManager.white,
+    fontFamily: fontFamily,
+  );
+  static TextStyle font16Light = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.light,
+    color: ColorsManager.white,
+    fontFamily: fontFamily,
+  );
   static TextStyle font12Light = TextStyle(
     fontSize: 12.sp,
     fontWeight: FontWeightHelper.light,
@@ -51,6 +75,12 @@ class TextStyles {
   );
   static TextStyle font12Regular = TextStyle(
     fontSize: 12.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsManager.white,
+    fontFamily: fontFamily,
+  );
+  static TextStyle font18Regular = TextStyle(
+    fontSize: 18.sp,
     fontWeight: FontWeightHelper.regular,
     color: ColorsManager.white,
     fontFamily: fontFamily,
