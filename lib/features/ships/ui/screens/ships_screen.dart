@@ -37,7 +37,10 @@ class _ShipsScreenState extends State<ShipsScreen> {
             }
             if (state.shipStatus.isError) {
               return Center(
-                child: Text(state.errorMessage ?? '@@@@@@@@'),
+                child: Text(
+                  state.errorMessage ?? '@@@@@@@@',
+                  style: TextStyles.font16BoldError,
+                ),
               );
             }
             if (state.shipStatus.isSuccess) {

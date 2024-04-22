@@ -5,6 +5,8 @@ class ColorsManager {
   static const Color lightBlack = Color(0xFF282828);
   static const Color white = Color(0xFFffffff);
   static const Color primary = Color(0xFF8355aa);
+  static const Color darkWhite = Color(0xFFE1D9D1);
+  static const Color error = Color(0xFFED4337);
 
   static const MaterialColor themeColor =
       MaterialColor(0xFF8355aa, <int, Color>{
