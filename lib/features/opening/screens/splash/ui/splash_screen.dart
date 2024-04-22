@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mentorship_b1/core/helpers/extensions.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../../core/constants/app_assets.dart';
-import '../../../core/routing/routes.dart';
-
+import '../../../../../core/constants/app_assets.dart';
+import '../../../../../core/routing/routes.dart';
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 

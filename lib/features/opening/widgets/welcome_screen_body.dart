@@ -42,7 +42,7 @@ class WelcomeScreenBody extends StatelessWidget {
             title: AppStrings.launch,
             textStyle: TextStyles.font16Bold,
             onPressed: (){
-              context.pushReplacementNamed(Routes.homeScreen);
+              context.pushReplacementNamed(Routes.login);
             },
           ),
           Gap(AppSize.s30)

@@ -30,7 +30,7 @@ class ShipItemInList extends StatelessWidget {
         children: [
           Container(
             height: AppHeight.h64,
-            width: AppWidth.h80,
+            width: AppWidth.w80,
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(AppRadius.r6),
