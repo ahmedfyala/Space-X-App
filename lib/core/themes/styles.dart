@@ -25,6 +25,24 @@ class TextStyles {
     color: ColorsManager.white,
     fontFamily: fontFamily,
   );
+  static TextStyle font16BoldPrimary = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsManager.primary,
+    fontFamily: fontFamily,
+  );
+  static TextStyle font16BoldError = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsManager.error,
+    fontFamily: fontFamily,
+  );
+  static TextStyle hintTextStyle = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsManager.darkWhite,
+    fontFamily: fontFamily,
+  );
   static TextStyle font12Light = TextStyle(
     fontSize: 12.sp,
     fontWeight: FontWeightHelper.light,

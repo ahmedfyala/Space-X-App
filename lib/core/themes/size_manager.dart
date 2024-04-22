@@ -14,7 +14,10 @@ class AppHeight{
   static double h70 = 70.h;
 }
 class AppWidth{
-  static double h80 = 80.w;
+  static double w10 = 10.w;
+  static double w15 = 15.w;
+  static double w80 = 80.w;
+  static double w150 = 150.w;
 }
 class AppRadius{
   static double r6 = 6.r;
@@ -22,5 +25,6 @@ class AppRadius{
 }
 class AppPadding{
   static double p10 = 10;
+  static double p15 = 15;
   static double p20 = 20;
 }
