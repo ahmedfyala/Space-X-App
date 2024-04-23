@@ -7,8 +7,10 @@ import 'package:flutter_mentorship_b1/features/profile/ui/profile_screen.dart';
 import 'package:flutter_mentorship_b1/features/rockets/logic/all_rockets_cubit.dart';
 import 'package:flutter_mentorship_b1/features/rockets/ui/rockets_screen.dart';
 import 'package:flutter_mentorship_b1/features/search/ui/search_screen.dart';
+import 'package:flutter_mentorship_b1/features/ships/data/models/ship_model.dart';
 import 'package:flutter_mentorship_b1/features/ships/logic/cubit.dart';
-import 'package:flutter_mentorship_b1/features/ships/ui/screens/ships_screen.dart';
+import 'package:flutter_mentorship_b1/features/ships/ui/screens/details/ship_details_screen.dart';
+import 'package:flutter_mentorship_b1/features/ships/ui/screens/ships/ships_screen.dart';
 
 import '../../features/opening/screens/splash/ui/splash_screen.dart';
 

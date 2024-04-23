@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mentorship_b1/core/helpers/extensions.dart';
+import 'package:flutter_mentorship_b1/core/routing/routes.dart';
 import 'package:flutter_mentorship_b1/core/themes/size_manager.dart';
+import 'package:flutter_mentorship_b1/features/ships/data/models/ship_model.dart';
 import 'package:flutter_mentorship_b1/features/ships/logic/cubit.dart';
 import 'package:flutter_mentorship_b1/features/ships/logic/states.dart';
+import 'package:flutter_mentorship_b1/features/ships/ui/screens/details/ship_details_screen.dart';
 import 'package:flutter_mentorship_b1/features/ships/ui/widgets/ship_item_in_list.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
-import '../../../../core/constants/app_strings.dart';
-import '../../../../core/themes/styles.dart';
+import '../../../../../core/constants/app_strings.dart';
+import '../../../../../core/themes/styles.dart';
 
 class ShipsScreen extends StatefulWidget {
-  const ShipsScreen({super.key});
+  const ShipsScreen({
+    super.key,
+  });
 
   @override
   State<ShipsScreen> createState() => _ShipsScreenState();
@@ -52,9 +57,21 @@ class _ShipsScreenState extends State<ShipsScreen> {
                     AppHeight.h20,
                   ),
                   itemBuilder: (context, index) {
-                    return ShipItemInList(
-                      image: state.ships![index].imageUrl.toString(),
-                      name: state.ships![index].shipName.toString(),
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ShipDetailsScreen(
+                              shipModel: state.ships![index],
+                            ),
+                          ),
+                        );
+                      },
+                      child: ShipItemInList(
+                        image: state.ships![index].imageUrl.toString(),
+                        name: state.ships![index].shipName.toString(),
+                      ),
                     );
                   },
                 ),

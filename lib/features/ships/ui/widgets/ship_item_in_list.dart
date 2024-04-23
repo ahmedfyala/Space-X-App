@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mentorship_b1/core/themes/size_manager.dart';
 
@@ -35,16 +36,19 @@ class ShipItemInList extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(AppRadius.r6),
             ),
-            child: Image.network(
-              image,
-              fit: BoxFit.cover,
-              errorBuilder: (
-                BuildContext context,
-                Object exception,
-                StackTrace? stackTrace,
-              ) {
-                return const ImageNetworkError();
-              },
+            child: Hero(
+              tag: (image),
+              child: Image.network(
+                image,
+                fit: BoxFit.cover,
+                errorBuilder: (
+                  BuildContext context,
+                  Object exception,
+                  StackTrace? stackTrace,
+                ) {
+                  return const ImageNetworkError();
+                },
+              ),
             ),
           ),
           Text(
