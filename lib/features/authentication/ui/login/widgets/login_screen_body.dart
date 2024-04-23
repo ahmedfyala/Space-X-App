@@ -23,7 +23,11 @@ class LoginScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return SingleChildScrollView(
+
+      child:
+
+      Column(
       //mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Gap(AppHeight.h40),
@@ -74,6 +78,6 @@ class LoginScreenBody extends StatelessWidget {
         Gap(AppHeight.h20),
         const NotAnAccount(),
       ],
-    );
+    ),);
   }
 }
