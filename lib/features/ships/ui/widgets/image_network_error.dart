@@ -14,7 +14,7 @@ class ImageNetworkError extends StatelessWidget {
           color: Colors.redAccent,
         ),
         Text(
-          'Url is empty',
+          'Image url is empty',
           style: TextStyles.font12Light,
         )
       ],

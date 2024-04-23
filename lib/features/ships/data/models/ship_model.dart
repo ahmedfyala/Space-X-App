@@ -36,7 +36,7 @@ class ShipModel {
 
   ShipModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    legacyId = json['legacy_Id'];
+    legacyId = json['legacy_id'];
     homePort = json['home_port'];
     imageUrl = json['image'];
     link = json['link'];
