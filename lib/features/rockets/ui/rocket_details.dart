@@ -3,10 +3,12 @@ import 'package:flutter_mentorship_b1/core/themes/styles.dart';
 import 'package:flutter_mentorship_b1/features/rockets/data/modes/rocket_model.dart';
 import 'package:flutter_mentorship_b1/features/rockets/ui/widgets/more_images_list_widget.dart';
 import 'package:flutter_mentorship_b1/features/rockets/ui/widgets/rocket_details_engine.dart';
+import 'package:flutter_mentorship_b1/features/rockets/ui/widgets/rocket_details_image_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/constants/app_strings.dart';
 import '../../../core/helpers/spaces.dart';
+import 'widgets/rocket_details_app_bar_widget.dart';
 import 'widgets/rocket_details_box_widget.dart';
 
 class RocketDetails extends StatelessWidget {
@@ -17,33 +19,14 @@ class RocketDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          rocket.name!,
-          style: TextStyles.font20Bold,
-        ),
-      ),
+      appBar: rocketDetailsAppBarWidget(rocket),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Hero(
-              tag: rocket.name!,
-              child: Center(
-                child: Container(
-                  height: 250.h,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(6.r),
-                  ),
-                  child: Image.network(
-                    rocket.flickrImages![0],
-                  ),
-                ),
-              ),
-            ),
+            RocketDetailsImageWidget(rocket: rocket),
             verticalSpace(10.h),
             Text(
               AppStrings.rocketDetails,
