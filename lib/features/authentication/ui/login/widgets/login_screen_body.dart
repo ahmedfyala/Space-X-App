@@ -10,9 +10,9 @@ import 'package:flutter_mentorship_b1/core/widgets/app_text_form_field_widget.da
 import 'package:flutter_mentorship_b1/features/authentication/ui/login/widgets/login_text_widget.dart';
 import 'package:gap/gap.dart';
 
+import '../../widgets/divider_widget.dart';
 import 'forgot_password_widget.dart';
-import 'login_divider_widget.dart';
-import 'login_social_media_widget.dart';
+import '../../widgets/social_media_widget.dart';
 import 'not_an_account.dart';
 
 class LoginScreenBody extends StatelessWidget {
@@ -68,9 +68,9 @@ class LoginScreenBody extends StatelessWidget {
             },
           ),
           Gap(AppHeight.h20),
-          const LoginDividerWidget(),
+          const DividerWidget(),
           Gap(AppHeight.h20),
-          const LoginSocialMediaWidget(),
+          const SocialMediaWidget(),
           Gap(AppHeight.h20),
           const NotAnAccount(),
         ],

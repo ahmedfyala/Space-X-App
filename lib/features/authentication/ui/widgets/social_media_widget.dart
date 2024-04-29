@@ -5,8 +5,8 @@ import 'package:flutter_mentorship_b1/core/themes/styles.dart';
 import 'package:flutter_mentorship_b1/core/widgets/app_button_widgets.dart';
 import 'package:gap/gap.dart';
 
-class LoginSocialMediaWidget extends StatelessWidget {
-  const LoginSocialMediaWidget({super.key});
+class SocialMediaWidget extends StatelessWidget {
+  const SocialMediaWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
