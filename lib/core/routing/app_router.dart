@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_mentorship_b1/features/authentication/logic/register/register_cubit.dart';
 import 'package:flutter_mentorship_b1/features/authentication/ui/login/login_screen.dart';
 import 'package:flutter_mentorship_b1/features/authentication/ui/register/register_screen.dart';
 import 'package:flutter_mentorship_b1/features/opening/screens/welcome/welcome_screen.dart';
@@ -35,7 +36,10 @@ class AppRouter {
         );
       case Routes.register:
         return MaterialPageRoute(
-          builder: (_) => const RegisterScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<RegisterCubit>(),
+            child: const RegisterScreen(),
+          ),
         );
       case Routes.homeScreen:
         return MaterialPageRoute(
