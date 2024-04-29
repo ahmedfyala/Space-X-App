@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "781408006855",
+    "project_id": "flutter-mentor-ship",
+    "storage_bucket": "flutter-mentor-ship.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:781408006855:android:5f2632318977b7bbc9c4e2",
+        "android_client_info": {
+          "package_name": "com.example.flutter_mentorship_b1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgpo_tQraSoI39gFHiy5Cun6wEDwwuZ6o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
