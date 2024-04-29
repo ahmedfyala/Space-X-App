@@ -1,5 +1,5 @@
-
 import 'package:flutter_mentorship_b1/core/networking/network_info/network_info.dart';
+import 'package:flutter_mentorship_b1/features/authentication/logic/register/register_cubit.dart';
 import 'package:flutter_mentorship_b1/features/ships/data/repositore/ship_repository.dart';
 import 'package:flutter_mentorship_b1/features/ships/logic/cubit.dart';
 
@@ -43,5 +43,5 @@ Future<void> setupGetIt() async {
       () => AllRocketsRepo(apiService: getIt()));
   getIt.registerLazySingleton<AllRocketsCubit>(
       () => AllRocketsCubit(allRocketsRepo: getIt()));
-
+  getIt.registerLazySingleton<RegisterCubit>(() => RegisterCubit());
 }
