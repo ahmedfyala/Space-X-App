@@ -24,60 +24,57 @@ class LoginScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-
-      child:
-
-      Column(
-      //mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Gap(AppHeight.h40),
-        Image.asset(
-          'assets/png/control-panel.png',
-          fit: BoxFit.cover,
-          width: AppWidth.w150,
-        ),
-        Gap(AppHeight.h20),
-        LoginTextWidget(
-          text: 'SpaceXplorer',
-          textStyle: TextStyles.font24Bold,
-        ),
-        LoginTextWidget(
-          text: AppStrings.exploreSpaceLogin,
-          textStyle: TextStyles.font16light,
-        ),
-        Gap(AppHeight.h20),
-        AppTextFormFieldWidget(
-          controller: emailController,
-          hintText: AppStrings.email,
-          textInputType: TextInputType.emailAddress,
-        ),
-        Gap(AppHeight.h20),
-        AppTextFormFieldWidget(
-          controller: passwordController,
-          hintText: AppStrings.password,
-          textInputType: TextInputType.visiblePassword,
-        ),
-        const Align(
-          alignment: AlignmentDirectional.bottomEnd,
-          child: ForgotPasswordWidget(),
-        ),
-        Gap(AppHeight.h20),
-        AppButtonWidget(
-          height: AppHeight.h40,
-          width: double.infinity,
-          title: AppStrings.enter,
-          textStyle: TextStyles.font16Bold,
-          onPressed: (){
-            context.pushNamed(Routes.homeScreen);
-          },
-        ),
-        Gap(AppHeight.h20),
-        const LoginDividerWidget(),
-        Gap(AppHeight.h20),
-        const LoginSocialMediaWidget(),
-        Gap(AppHeight.h20),
-        const NotAnAccount(),
-      ],
-    ),);
+      child: Column(
+        children: [
+          Gap(AppHeight.h40),
+          Image.asset(
+            'assets/png/control-panel.png',
+            fit: BoxFit.cover,
+            width: AppWidth.w150,
+          ),
+          Gap(AppHeight.h20),
+          LoginTextWidget(
+            text: 'SpaceXplorer',
+            textStyle: TextStyles.font24Bold,
+          ),
+          LoginTextWidget(
+            text: AppStrings.exploreSpaceLogin,
+            textStyle: TextStyles.font16light,
+          ),
+          Gap(AppHeight.h20),
+          AppTextFormFieldWidget(
+            controller: emailController,
+            hintText: AppStrings.email,
+            textInputType: TextInputType.emailAddress,
+          ),
+          Gap(AppHeight.h20),
+          AppTextFormFieldWidget(
+            controller: passwordController,
+            hintText: AppStrings.password,
+            textInputType: TextInputType.visiblePassword,
+          ),
+          const Align(
+            alignment: AlignmentDirectional.bottomEnd,
+            child: ForgotPasswordWidget(),
+          ),
+          Gap(AppHeight.h20),
+          AppButtonWidget(
+            height: AppHeight.h40,
+            width: double.infinity,
+            title: AppStrings.enter,
+            textStyle: TextStyles.font16Bold,
+            onPressed: () {
+              context.pushNamed(Routes.homeScreen);
+            },
+          ),
+          Gap(AppHeight.h20),
+          const LoginDividerWidget(),
+          Gap(AppHeight.h20),
+          const LoginSocialMediaWidget(),
+          Gap(AppHeight.h20),
+          const NotAnAccount(),
+        ],
+      ),
+    );
   }
 }

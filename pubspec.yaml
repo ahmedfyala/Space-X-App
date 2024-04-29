@@ -33,7 +33,8 @@ dependencies:
 # Data Storage
   shared_preferences:
   url_launcher:
-
+# firebase plugin
+  firebase_core:
 dev_dependencies:
   flutter_test:
     sdk: flutter
