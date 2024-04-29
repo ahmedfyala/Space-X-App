@@ -1,14 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_mentorship_b1/core/constants/app_strings.dart';
 import 'package:flutter_mentorship_b1/core/themes/colors_manager.dart';
 import 'package:flutter_mentorship_b1/core/themes/size_manager.dart';
 import 'package:flutter_mentorship_b1/core/themes/styles.dart';
-import 'package:gap/gap.dart';
 
-class LoginDividerWidget extends StatelessWidget {
-  const LoginDividerWidget({super.key});
+class DividerWidget extends StatelessWidget {
+  const DividerWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -16,10 +16,11 @@ class NotAnAccount extends StatelessWidget {
         style: TextStyles.font12Regular,
         children: [
           TextSpan(
-            recognizer: TapGestureRecognizer()..onTap = () {
-              context.pushNamed(Routes.register);
-            },
-            text: AppStrings.joinNwo,
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                context.pushNamed(Routes.register);
+              },
+            text: AppStrings.joinNow,
             style: TextStyles.font16BoldPrimary,
           ),
         ],

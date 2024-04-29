@@ -9,6 +9,7 @@ class AssetsPaths {
 class AppImages {}
 
 class AppPng {
+  static const String rocket = '${AssetsPaths.png}/rocket.png';
 }
 
 class AppSvgs {}
