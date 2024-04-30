@@ -12,6 +12,7 @@ import '../../../../../core/routing/routes.dart';
 import '../../../../../core/themes/colors_manager.dart';
 import '../../../../../core/themes/styles.dart';
 import '../../../../../core/widgets/app_text_form_field_widget.dart';
+import '../../../../../core/widgets/error_snack_bar_widget.dart';
 import '../../../logic/register/register_cubit.dart';
 
 class RegisterFormWidget extends StatefulWidget {
@@ -30,11 +31,7 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
         if (state is RegisterSuccess) {
           context.pushNamed(Routes.homeScreen);
         } else if (state is RegisterFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Please check remember me'),
-            ),
-          );
+          errorSnackBar(state.error, context);
         }
       },
       child: Form(
