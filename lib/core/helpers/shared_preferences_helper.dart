@@ -31,6 +31,20 @@ class SharedPreferencesHelper {
     }
   }
 
+  // MARK: - 🗑️ Remove Data.
+  static removeData(String key) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    debugPrint('[SharedPreferencesHelper] removeData with key: $key');
+    prefs.remove(key);
+  }
+
+  // MARK: - 📦 Clear All Data.
+  static clearAllData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    debugPrint('[SharedPreferencesHelper] clearAllData');
+    prefs.clear();
+  }
+
   // MARK: - 🧲 Get Data.
   static getData(String key) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
