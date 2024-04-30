@@ -1,5 +1,8 @@
 import 'package:flutter_mentorship_b1/core/networking/network_info/network_info.dart';
+import 'package:flutter_mentorship_b1/features/authentication/data/repo/auth_repo.dart';
+import 'package:flutter_mentorship_b1/features/authentication/logic/auth/auth_cubit.dart';
 import 'package:flutter_mentorship_b1/features/authentication/logic/register/register_cubit.dart';
+import 'package:flutter_mentorship_b1/features/authentication/logic/login/login_cubit.dart';
 import 'package:flutter_mentorship_b1/features/ships/data/repositore/ship_repository.dart';
 import 'package:flutter_mentorship_b1/features/ships/logic/cubit.dart';
 
@@ -19,6 +22,7 @@ Future<void> setupGetIt() async {
   Dio dio = DioFactory.getDio();
 
   InternetConnectionChecker connectionChecker = InternetConnectionChecker();
+  // register api service
   getIt.registerLazySingleton<ApiService>(
     () => ApiService(dio),
   );
@@ -39,9 +43,17 @@ Future<void> setupGetIt() async {
     ),
   );
 
+  // get all rockets
   getIt.registerLazySingleton<AllRocketsRepo>(
       () => AllRocketsRepo(apiService: getIt()));
   getIt.registerLazySingleton<AllRocketsCubit>(
       () => AllRocketsCubit(allRocketsRepo: getIt()));
-  getIt.registerLazySingleton<RegisterCubit>(() => RegisterCubit());
+
+  // auth
+  getIt.registerLazySingleton<AuthRepository>(() => AuthRepository());
+
+  getIt.registerLazySingleton<RegisterCubit>(() => RegisterCubit(getIt()));
+  getIt.registerLazySingleton<AuthCubit>(() => AuthCubit(getIt()));
+
+  getIt.registerLazySingleton<LoginCubit>(() => LoginCubit(getIt()));
 }

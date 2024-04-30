@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mentorship_b1/features/authentication/logic/register/register_cubit.dart';
+import 'package:flutter_mentorship_b1/features/authentication/logic/login/login_cubit.dart';
 import 'package:flutter_mentorship_b1/features/authentication/ui/login/login_screen.dart';
 import 'package:flutter_mentorship_b1/features/authentication/ui/register/register_screen.dart';
 import 'package:flutter_mentorship_b1/features/opening/screens/welcome/welcome_screen.dart';
@@ -8,9 +9,7 @@ import 'package:flutter_mentorship_b1/features/profile/ui/profile_screen.dart';
 import 'package:flutter_mentorship_b1/features/rockets/logic/all_rockets_cubit.dart';
 import 'package:flutter_mentorship_b1/features/rockets/ui/rockets_screen.dart';
 import 'package:flutter_mentorship_b1/features/search/ui/search_screen.dart';
-import 'package:flutter_mentorship_b1/features/ships/data/models/ship_model.dart';
 import 'package:flutter_mentorship_b1/features/ships/logic/cubit.dart';
-import 'package:flutter_mentorship_b1/features/ships/ui/screens/details/ship_details_screen.dart';
 import 'package:flutter_mentorship_b1/features/ships/ui/screens/ships/ships_screen.dart';
 
 import '../../features/opening/screens/splash/ui/splash_screen.dart';
@@ -32,7 +31,10 @@ class AppRouter {
         );
       case Routes.login:
         return MaterialPageRoute(
-          builder: (_) => const LoginScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<LoginCubit>(),
+            child: const LoginScreen(),
+          ),
         );
       case Routes.register:
         return MaterialPageRoute(
