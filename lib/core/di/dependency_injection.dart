@@ -37,7 +37,7 @@ Future<void> setupGetIt() async {
       getIt(),
     ),
   );
-  getIt.registerFactory<ShipCubit>(
+  getIt.registerLazySingleton<ShipCubit>(
     () => ShipCubit(
       getIt(),
     ),
@@ -56,4 +56,13 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<AuthCubit>(() => AuthCubit(getIt()));
 
   getIt.registerLazySingleton<LoginCubit>(() => LoginCubit(getIt()));
+}
+
+Future<void> initAuthFeature()async{
+  getIt.registerFactory<AuthRepository>(() => AuthRepository());
+
+  getIt.registerFactory<RegisterCubit>(() => RegisterCubit(getIt()));
+  getIt.registerFactory<AuthCubit>(() => AuthCubit(getIt()));
+
+  getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
 }
