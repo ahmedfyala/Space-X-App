@@ -3,7 +3,12 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_mentorship_b1/core/helpers/enums.dart';
+import 'package:flutter_mentorship_b1/core/helpers/extensions.dart';
 import 'package:flutter_mentorship_b1/core/helpers/shared_preferences_helper.dart';
+import 'package:flutter_mentorship_b1/core/networking/error_handler/error_handler.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 import '../../../../core/networking/error_handler/failure.dart';
 import '../models/user_model.dart';
@@ -97,6 +102,30 @@ class AuthRepository {
       }
       log('[error ❌] ${e.message!.toString()}');
       return Left(Failure(0, e.message!));
+    }
+  }
+
+  Future<Either<Failure, UserCredential>> googleSignIn() async {
+    if (await InternetConnectionChecker().hasConnection) {
+      try {
+        final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+        final GoogleSignInAuthentication? googleAuth =
+            await googleUser?.authentication;
+
+        final credential = GoogleAuthProvider.credential(
+          accessToken: googleAuth?.accessToken,
+          idToken: googleAuth?.idToken,
+        );
+        var response = await _firebaseAuth.signInWithCredential(credential);
+        return Right(response);
+      } on FirebaseAuthException catch (error) {
+        return Left(
+          Failure(0, error.message!),
+        );
+      }
+    } else {
+      return Left(HttpStatusCodeEnum.noInternetConnection.getFailure());
     }
   }
 }
