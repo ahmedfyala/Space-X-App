@@ -133,10 +133,17 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
               },
             ),
             verticalSpace(20.h),
-            AppButtonWidget(
-              title: AppStrings.signUp,
-              onPressed: () {
-                cubit.register();
+            BlocBuilder<RegisterCubit, RegisterState>(
+              builder: (context, state) {
+                if (state is RegisterLoading) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+                return AppButtonWidget(
+                  title: AppStrings.signUp,
+                  onPressed: () {
+                    cubit.register();
+                  },
+                );
               },
             ),
             verticalSpace(20.h),

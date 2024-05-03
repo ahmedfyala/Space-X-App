@@ -66,7 +66,7 @@ class AppRouter {
       case Routes.allRockets:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => getIt<AllRocketsCubit>()..fetchAllRockets(),
+            create: (_) => getIt<AllRocketsCubit>()..fetchAllRockets(),
             child: const RocketsScreen(),
           ),
         );

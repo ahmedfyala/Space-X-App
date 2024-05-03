@@ -1,6 +1,5 @@
 part of 'all_rockets_cubit.dart';
 
-@immutable
 sealed class AllRocketsState {}
 
 final class AllRocketsInitial extends AllRocketsState {}

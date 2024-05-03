@@ -72,13 +72,22 @@ class LoginFormWidget extends StatelessWidget {
             child: ForgotPasswordWidget(),
           ),
           Gap(AppHeight.h20),
-          AppButtonWidget(
-            height: AppHeight.h40,
-            width: double.infinity,
-            title: AppStrings.enter,
-            textStyle: TextStyles.font16Bold,
-            onPressed: () {
-              context.read<LoginCubit>().login();
+          BlocBuilder<LoginCubit, LoginState>(
+            builder: (context, state) {
+              if (state is LoginLoading) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              return AppButtonWidget(
+                height: AppHeight.h40,
+                width: double.infinity,
+                title: AppStrings.enter,
+                textStyle: TextStyles.font16Bold,
+                onPressed: () {
+                  context.read<LoginCubit>().login();
+                },
+              );
             },
           ),
         ]),

@@ -45,20 +45,20 @@ Future<void> setupGetIt() async {
 
   // get all rockets
   getIt.registerLazySingleton<AllRocketsRepo>(
-      () => AllRocketsRepo(apiService: getIt()));
-  getIt.registerLazySingleton<AllRocketsCubit>(
+      () => AllRocketsRepo(apiService: getIt(), networkInfo: getIt()));
+  getIt.registerFactory<AllRocketsCubit>(
       () => AllRocketsCubit(allRocketsRepo: getIt()));
 
   // auth
   getIt.registerLazySingleton<AuthRepository>(() => AuthRepository());
 
-  getIt.registerLazySingleton<RegisterCubit>(() => RegisterCubit(getIt()));
-  getIt.registerLazySingleton<AuthCubit>(() => AuthCubit(getIt()));
+  getIt.registerFactory<RegisterCubit>(() => RegisterCubit(getIt()));
+  getIt.registerFactory<AuthCubit>(() => AuthCubit(getIt()));
 
-  getIt.registerLazySingleton<LoginCubit>(() => LoginCubit(getIt()));
+  getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
 }
 
-Future<void> initAuthFeature()async{
+Future<void> initAuthFeature() async {
   getIt.registerFactory<AuthRepository>(() => AuthRepository());
 
   getIt.registerFactory<RegisterCubit>(() => RegisterCubit(getIt()));
