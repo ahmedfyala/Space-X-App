@@ -45,8 +45,8 @@ Future<void> setupGetIt() async {
 
   // get all rockets
   getIt.registerLazySingleton<AllRocketsRepo>(
-      () => AllRocketsRepo(apiService: getIt()));
-  getIt.registerLazySingleton<AllRocketsCubit>(
+      () => AllRocketsRepo(apiService: getIt(), networkInfo: getIt()));
+  getIt.registerFactory<AllRocketsCubit>(
       () => AllRocketsCubit(allRocketsRepo: getIt()));
 
   // auth

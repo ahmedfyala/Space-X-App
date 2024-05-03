@@ -1,6 +1,5 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mentorship_b1/features/rockets/data/repo/all_rockets_repo.dart';
-import 'package:meta/meta.dart';
 
 import '../data/modes/rocket_model.dart';
 
@@ -14,7 +13,7 @@ class AllRocketsCubit extends Cubit<AllRocketsState> {
     emit(GetAllRocketsLoading());
     var response = await allRocketsRepo.fetchAllRockets();
     response.fold((failure) {
-      emit(GetAllRocketsError(failure.failure.message));
+      emit(GetAllRocketsError(failure.message));
     }, (rockets) {
       emit(GetAllRocketsSuccess(rockets));
     });
