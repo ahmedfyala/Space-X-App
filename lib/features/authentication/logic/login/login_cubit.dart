@@ -38,7 +38,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   Future<void> signInWithGoogleAccount() async {
     emit(LoginLoading());
-    (await userRepository.googleSignIn()).fold(
+    (await userRepository.signInWithGoogleAccount()).fold(
         (
           failure,
         ) {
