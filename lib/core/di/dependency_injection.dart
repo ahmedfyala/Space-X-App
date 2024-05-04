@@ -3,7 +3,6 @@ import 'package:flutter_mentorship_b1/features/authentication/data/repo/auth_rep
 import 'package:flutter_mentorship_b1/features/authentication/logic/auth/auth_cubit.dart';
 import 'package:flutter_mentorship_b1/features/authentication/logic/register/register_cubit.dart';
 import 'package:flutter_mentorship_b1/features/authentication/logic/login/login_cubit.dart';
-import 'package:flutter_mentorship_b1/features/ships/data/repositore/ship_repository.dart';
 import 'package:flutter_mentorship_b1/features/ships/logic/cubit.dart';
 
 import 'package:flutter_mentorship_b1/features/rockets/data/repo/all_rockets_repo.dart';
@@ -13,6 +12,7 @@ import 'package:get_it/get_it.dart';
 import 'package:dio/dio.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
+import '../../features/ships/data/repository/ship_repository.dart';
 import '../networking/api_service.dart';
 import '../networking/dio_factory.dart';
 

@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_mentorship_b1/features/ships/data/repositore/ship_repository.dart';
 import 'package:flutter_mentorship_b1/features/ships/logic/states.dart';
+
+import '../data/repository/ship_repository.dart';
 
 class ShipCubit extends Cubit<ShipStates> {
   ShipCubit(this.shipRepository) : super(ShipStates());

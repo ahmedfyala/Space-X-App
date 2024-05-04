@@ -10,7 +10,7 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding:  EdgeInsets.all(AppPadding.p15),
-        child: LoginScreenBody(),
+        child: const LoginScreenBody(),
       ),
     );
   }

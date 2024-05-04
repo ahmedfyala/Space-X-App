@@ -105,18 +105,19 @@ class AuthRepository {
     }
   }
 
-  Future<Either<Failure, UserCredential>> googleSignIn() async {
+  Future<Either<Failure, UserCredential>> signInWithGoogleAccount() async {
     if (await InternetConnectionChecker().hasConnection) {
       try {
         final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
+        log('google user====================');
         final GoogleSignInAuthentication? googleAuth =
             await googleUser?.authentication;
-
+        log('googleAuth====================');
         final credential = GoogleAuthProvider.credential(
           accessToken: googleAuth?.accessToken,
           idToken: googleAuth?.idToken,
         );
+        log('credential====================');
         var response = await _firebaseAuth.signInWithCredential(credential);
         return Right(response);
       } on FirebaseAuthException catch (error) {
