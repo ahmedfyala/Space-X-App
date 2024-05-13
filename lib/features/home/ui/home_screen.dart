@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mentorship_b1/features/crew/ui/crew_screen.dart';
 
 import '../../../core/themes/colors_manager.dart';
 import '../../profile/ui/profile_screen.dart';
-import '../../search/ui/search_screen.dart';
 import '../../space/ui/space_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> screens = const [
     Space(),
-    Search(),
+    CrewScreen(),
     Profile(),
   ];
 
@@ -40,11 +40,11 @@ class _HomeScreenState extends State<HomeScreen> {
             label: "Space",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: "Search",
+            icon: Icon(Icons.groups_rounded),
+            label: "Crew",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.rocket_launch_outlined),
+            icon: Icon(Icons.person_3_rounded),
             label: "Profile",
           ),
         ],
