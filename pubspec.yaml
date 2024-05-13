@@ -29,6 +29,7 @@ dependencies:
   gap:
   lottie:
   flutter_native_splash:
+  cached_network_image:
 # Data Storage
   shared_preferences:
   url_launcher:
