@@ -3,6 +3,8 @@ import 'package:flutter_mentorship_b1/features/authentication/data/repo/auth_rep
 import 'package:flutter_mentorship_b1/features/authentication/logic/auth/auth_cubit.dart';
 import 'package:flutter_mentorship_b1/features/authentication/logic/register/register_cubit.dart';
 import 'package:flutter_mentorship_b1/features/authentication/logic/login/login_cubit.dart';
+import 'package:flutter_mentorship_b1/features/crew/data/repo/crew_repo.dart';
+import 'package:flutter_mentorship_b1/features/crew/logic/crew_cubit.dart';
 import 'package:flutter_mentorship_b1/features/ships/logic/cubit.dart';
 
 import 'package:flutter_mentorship_b1/features/rockets/data/repo/all_rockets_repo.dart';
@@ -48,6 +50,11 @@ Future<void> setupGetIt() async {
       () => AllRocketsRepo(apiService: getIt(), networkInfo: getIt()));
   getIt.registerFactory<AllRocketsCubit>(
       () => AllRocketsCubit(allRocketsRepo: getIt()));
+
+  // get all crew
+  getIt.registerLazySingleton<CrewRepository>(
+      () => CrewRepository(apiService: getIt(), networkInfo: getIt()));
+  getIt.registerFactory<CrewCubit>(() => CrewCubit(getIt()));
 
   // auth
   getIt.registerLazySingleton<AuthRepository>(() => AuthRepository());

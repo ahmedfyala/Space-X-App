@@ -42,4 +42,6 @@ class AppStrings {
   static const String ships = 'Ships';
   static const String launches = 'Launches';
   static const String noRocketsFound = 'No Rockets Founded';
+  static const String viewInWikipedia = 'View in wikipedia';
+  static const String noCrewMembersFound = 'No Crew Members Founded';
 }
