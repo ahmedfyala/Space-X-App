@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mentorship_b1/features/authentication/data/repo/auth_repo.dart';
 
 part 'auth_state.dart';
@@ -19,6 +19,19 @@ class AuthCubit extends Cubit<AuthState> {
         log('[Debug 🐛] User UnAuthenticated');
         emit(UserUnAuthenticated());
       }
+    });
+  }
+
+  Future<void> signInWithGoogleAccount() async {
+    emit(GoogleSignInLoading());
+    var response = await _authRepo.signInWithGoogleAccount();
+
+    response.fold((failure) {
+      emit(
+        GoogleSignInFailure(failure.message),
+      );
+    }, (success) {
+      emit(GoogleSignInSuccess());
     });
   }
 }
