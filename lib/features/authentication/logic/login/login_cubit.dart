@@ -1,8 +1,7 @@
 import 'dart:developer';
 
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mentorship_b1/features/authentication/logic/auth/auth_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/repo/auth_repo.dart';
 
 part 'login_state.dart';
@@ -34,20 +33,5 @@ class LoginCubit extends Cubit<LoginState> {
         },
       );
     }
-  }
-
-  Future<void> signInWithGoogleAccount() async {
-    emit(LoginLoading());
-    (await userRepository.signInWithGoogleAccount()).fold(
-        (
-          failure,
-        ) {
-          emit(LoginFailure(failure.message),);
-        },
-        (
-          success,
-        ) {
-          emit(LoginSuccess());
-        });
   }
 }

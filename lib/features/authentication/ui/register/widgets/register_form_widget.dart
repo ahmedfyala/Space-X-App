@@ -15,17 +15,11 @@ import '../../../../../core/widgets/app_text_form_field_widget.dart';
 import '../../../../../core/widgets/error_snack_bar_widget.dart';
 import '../../../logic/register/register_cubit.dart';
 
-class RegisterFormWidget extends StatefulWidget {
+class RegisterFormWidget extends StatelessWidget {
   const RegisterFormWidget({super.key});
 
   @override
-  State<RegisterFormWidget> createState() => _RegisterFormWidgetState();
-}
-
-class _RegisterFormWidgetState extends State<RegisterFormWidget> {
-  @override
   Widget build(BuildContext context) {
-    var cubit = context.read<RegisterCubit>();
     return BlocListener<RegisterCubit, RegisterState>(
       listener: (context, state) {
         if (state is RegisterSuccess) {
@@ -35,18 +29,19 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
         }
       },
       child: Form(
-        key: cubit.formKey,
+        key: context.read<RegisterCubit>().formKey,
         child: Column(
           children: [
             AppTextFormFieldWidget(
-              controller: cubit.nameController,
+              controller: context.read<RegisterCubit>().nameController,
               hintText: AppStrings.username,
               textInputType: TextInputType.name,
               icon: Icons.person_2_rounded,
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your username';
-                } else if (!AppRegExp.isNameValid(cubit.nameController.text)) {
+                } else if (!AppRegExp.isNameValid(
+                    context.read<RegisterCubit>().nameController.text)) {
                   return 'Please enter Correct username';
                 }
                 return null;
@@ -54,7 +49,7 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
             ),
             verticalSpace(10.h),
             AppTextFormFieldWidget(
-              controller: cubit.emailController,
+              controller: context.read<RegisterCubit>().emailController,
               hintText: AppStrings.email,
               textInputType: TextInputType.emailAddress,
               icon: Icons.email_rounded,
@@ -62,7 +57,7 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your email';
                 } else if (!AppRegExp.isEmailValid(
-                    cubit.emailController.text)) {
+                    context.read<RegisterCubit>().emailController.text)) {
                   return 'Please enter Correct email';
                 }
                 return null;
@@ -70,7 +65,7 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
             ),
             verticalSpace(10.h),
             AppTextFormFieldWidget(
-              controller: cubit.passwordController,
+              controller: context.read<RegisterCubit>().passwordController,
               hintText: AppStrings.password,
               textInputType: TextInputType.visiblePassword,
               icon: Icons.lock_rounded,
@@ -79,7 +74,7 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your password';
                 } else if (!AppRegExp.isPasswordValid(
-                    cubit.passwordController.text)) {
+                    context.read<RegisterCubit>().passwordController.text)) {
                   return 'Please enter Correct password';
                 }
                 return null;
@@ -87,7 +82,8 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
             ),
             verticalSpace(10.h),
             AppTextFormFieldWidget(
-              controller: cubit.confirmPasswordController,
+              controller:
+                  context.read<RegisterCubit>().confirmPasswordController,
               hintText: AppStrings.repeatPassword,
               textInputType: TextInputType.visiblePassword,
               icon: Icons.lock_rounded,
@@ -95,8 +91,11 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter confirm password';
-                } else if (cubit.confirmPasswordController.text !=
-                    cubit.passwordController.text) {
+                } else if (context
+                        .read<RegisterCubit>()
+                        .confirmPasswordController
+                        .text !=
+                    context.read<RegisterCubit>().passwordController.text) {
                   return 'Confirm password not match';
                 }
                 return null;
@@ -108,9 +107,9 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
                 return Row(
                   children: [
                     CupertinoCheckbox(
-                      value: cubit.rememberMe,
+                      value: context.read<RegisterCubit>().rememberMe,
                       onChanged: (value) {
-                        cubit.changeRememberMe();
+                        context.read<RegisterCubit>().changeRememberMe();
                       },
                       checkColor: ColorsManager.primary,
                       activeColor: ColorsManager.black,
@@ -141,7 +140,7 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
                 return AppButtonWidget(
                   title: AppStrings.signUp,
                   onPressed: () {
-                    cubit.register();
+                    context.read<RegisterCubit>().register();
                   },
                 );
               },
