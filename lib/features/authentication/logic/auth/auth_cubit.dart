@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mentorship_b1/features/authentication/data/repo/auth_repo.dart';
 
@@ -20,6 +19,11 @@ class AuthCubit extends Cubit<AuthState> {
         emit(UserUnAuthenticated());
       }
     });
+  }
+
+  logOut() {
+    _authRepo.logOut();
+    emit(UserUnAuthenticated());
   }
 
   Future<void> signInWithGoogleAccount() async {
