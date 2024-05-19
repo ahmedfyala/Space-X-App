@@ -10,6 +10,8 @@ class AppImages {}
 
 class AppPng {
   static const String rocket = '${AssetsPaths.png}/rocket.png';
+  static const String user =
+      'https://llllline.com/images/thumbs/0000038270_eps_800.jpeg';
 }
 
 class AppSvgs {}

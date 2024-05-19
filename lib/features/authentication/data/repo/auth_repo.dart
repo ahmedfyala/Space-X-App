@@ -6,7 +6,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_mentorship_b1/core/helpers/enums.dart';
 import 'package:flutter_mentorship_b1/core/helpers/extensions.dart';
 import 'package:flutter_mentorship_b1/core/helpers/shared_preferences_helper.dart';
-import 'package:flutter_mentorship_b1/core/networking/error_handler/error_handler.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
@@ -37,10 +36,11 @@ class AuthRepository {
     await _firebaseAuth.signOut();
   }
 
-  Future<Either<Failure, UserModel>> register(
-      {required String email,
-      required String password,
-      required String name}) async {
+  Future<Either<Failure, UserModel>> register({
+    required String email,
+    required String password,
+    required String name,
+  }) async {
     try {
       final userCredential = await _firebaseAuth.createUserWithEmailAndPassword(
         email: email,
@@ -60,7 +60,11 @@ class AuthRepository {
           .doc(signedInUser.uid)
           .set(user.toMap());
       log('[debug 🐛] User Created success');
+
+      /// Save user data in shared preferences
       SharedPreferencesHelper.setData('uId', signedInUser.uid);
+      SharedPreferencesHelper.setData('name', name);
+      SharedPreferencesHelper.setData('email', email);
       return Right(user);
     } on FirebaseAuthException catch (e) {
       log("[error ❌] ${e.toString()}");
@@ -82,14 +86,18 @@ class AuthRepository {
         email: email,
         password: password,
       );
-      final signedInUser = userCredential.user!;
-      UserModel user = UserModel(
-        name: signedInUser.displayName ?? '',
-        email: signedInUser.email!,
-        uId: signedInUser.uid,
-      );
-      SharedPreferencesHelper.setData('uId', signedInUser.uid);
-      SharedPreferencesHelper.setData('Name', signedInUser.displayName ?? '');
+
+      /// Get user data
+      final signedInUser = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(userCredential.user!.uid)
+          .get();
+      UserModel user = UserModel.fromMap(signedInUser.data()!);
+
+      /// Save user data in shared preferences
+      SharedPreferencesHelper.setData('uId', user.uId);
+      SharedPreferencesHelper.setData('name', user.name);
+      SharedPreferencesHelper.setData('email', user.email);
       log('[debug 🐛] SignIn success $user');
       return Right(user);
     } on FirebaseAuthException catch (e) {
@@ -119,6 +127,24 @@ class AuthRepository {
         );
         log('credential====================');
         var response = await _firebaseAuth.signInWithCredential(credential);
+
+        /// Add User in database
+        FirebaseFirestore.instance
+            .collection('users')
+            .doc(response.user!.uid)
+            .set(
+              UserModel(
+                name: response.user!.displayName ?? '',
+                email: response.user!.email ?? '',
+                uId: response.user!.uid,
+              ).toMap(),
+            );
+
+        /// Save user data in shared preferences
+        SharedPreferencesHelper.setData('uId', response.user!.uid);
+        SharedPreferencesHelper.setData(
+            'name', response.user!.displayName ?? '');
+        SharedPreferencesHelper.setData('email', response.user!.email ?? '');
         return Right(response);
       } on FirebaseAuthException catch (error) {
         return Left(

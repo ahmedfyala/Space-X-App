@@ -44,4 +44,10 @@ class AppStrings {
   static const String noRocketsFound = 'No Rockets Founded';
   static const String viewInWikipedia = 'View in wikipedia';
   static const String noCrewMembersFound = 'No Crew Members Founded';
+  static const String profile = 'Profile';
+  static const String favorite = 'Favorite';
+  static const String aboutCompany = 'About Company';
+  static const String settings = 'Settings';
+  static const String ourTeam = 'Our Team';
+  static const String logout = 'Logout';
 }

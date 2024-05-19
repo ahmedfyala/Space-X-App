@@ -14,6 +14,7 @@ import 'package:get_it/get_it.dart';
 import 'package:dio/dio.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
+import '../../features/profile/logic/profile_cubit.dart';
 import '../../features/ships/data/repository/ship_repository.dart';
 import '../networking/api_service.dart';
 import '../networking/dio_factory.dart';
@@ -63,6 +64,9 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<AuthCubit>(() => AuthCubit(getIt()));
 
   getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
+
+// profile
+  getIt.registerFactory<ProfileCubit>(() => ProfileCubit());
 }
 
 Future<void> initAuthFeature() async {
