@@ -10,19 +10,19 @@ class SharedPreferencesHelper {
     debugPrint(
         '[SharedPreferencesHelper] setData with key: $key & value: $value');
     switch (value.runtimeType) {
-      case String:
+      case const (String):
         prefs.setString(key, value);
         break;
-      case int:
+      case const (int):
         prefs.setInt(key, value);
         break;
-      case double:
+      case const (double):
         prefs.setDouble(key, value);
         break;
-      case bool:
+      case const (bool):
         prefs.setBool(key, value);
         break;
-      case List:
+      case const (List):
         prefs.setStringList(key, value);
         break;
       default:
@@ -49,6 +49,7 @@ class SharedPreferencesHelper {
   static getData(String key) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     debugPrint('[SharedPreferencesHelper] getData with key: $key');
+    debugPrint('[SharedPreferencesHelper] getData with key: ${prefs.get(key)}');
     return prefs.get(key);
   }
 }
