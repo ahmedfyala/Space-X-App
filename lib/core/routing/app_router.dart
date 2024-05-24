@@ -12,6 +12,8 @@ import 'package:flutter_mentorship_b1/features/search/ui/search_screen.dart';
 import 'package:flutter_mentorship_b1/features/ships/logic/cubit.dart';
 import 'package:flutter_mentorship_b1/features/ships/ui/screens/ships/ships_screen.dart';
 
+import '../../features/about_company/logic/company_cubit.dart';
+import '../../features/about_company/ui/about_company_screen.dart';
 import '../../features/opening/screens/splash/ui/splash_screen.dart';
 
 import '../../features/home/ui/home_screen.dart';
@@ -70,7 +72,13 @@ class AppRouter {
             child: const RocketsScreen(),
           ),
         );
-
+      case Routes.aboutCompany:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<CompanyCubit>()..getAboutCompany(),
+            child: const AboutCompanyScreen(),
+          ),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),

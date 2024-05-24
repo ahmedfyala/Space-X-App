@@ -1,4 +1,5 @@
 import 'package:flutter_mentorship_b1/core/networking/network_info/network_info.dart';
+import 'package:flutter_mentorship_b1/features/about_company/logic/company_cubit.dart';
 import 'package:flutter_mentorship_b1/features/authentication/data/repo/auth_repo.dart';
 import 'package:flutter_mentorship_b1/features/authentication/logic/auth/auth_cubit.dart';
 import 'package:flutter_mentorship_b1/features/authentication/logic/register/register_cubit.dart';
@@ -14,6 +15,7 @@ import 'package:get_it/get_it.dart';
 import 'package:dio/dio.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
+import '../../features/about_company/data/repo/about_company_repo.dart';
 import '../../features/profile/logic/profile_cubit.dart';
 import '../../features/ships/data/repository/ship_repository.dart';
 import '../networking/api_service.dart';
@@ -65,8 +67,13 @@ Future<void> setupGetIt() async {
 
   getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
 
-// profile
+  // profile
   getIt.registerFactory<ProfileCubit>(() => ProfileCubit());
+
+  // get about company
+  getIt.registerLazySingleton<AboutCompanyRepo>(
+      () => AboutCompanyRepo(getIt(), getIt()));
+  getIt.registerFactory<CompanyCubit>(() => CompanyCubit(getIt()));
 }
 
 Future<void> initAuthFeature() async {

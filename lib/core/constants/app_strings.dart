@@ -50,4 +50,5 @@ class AppStrings {
   static const String settings = 'Settings';
   static const String ourTeam = 'Our Team';
   static const String logout = 'Logout';
+  static const String team = 'Team';
 }

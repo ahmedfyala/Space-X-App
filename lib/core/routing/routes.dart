@@ -8,5 +8,6 @@ class Routes {
   static const String searchScreen = "/searchScreen";
   static const String ships = "/ships";
   static const String allRockets = "/allRockets";
+  static const String aboutCompany = "/aboutCompany";
 
 }
