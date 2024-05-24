@@ -25,7 +25,7 @@ class ProfileDataWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: Image.network(
-                  AppPng.user,
+                  AppImages.user,
                   fit: BoxFit.cover,
                 ),
               ),
