@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mentorship_b1/core/helpers/extensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/spaces.dart';
@@ -24,7 +25,7 @@ class ProfileRowItemWidget extends StatelessWidget {
         InkWell(
           onTap: onTap ??
               () {
-                // context.pushNamed(routeName);
+                 context.pushNamed(routeName);
               },
           child: Row(
             children: [
