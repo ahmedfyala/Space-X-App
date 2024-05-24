@@ -85,4 +85,24 @@ class TextStyles {
     color: ColorsManager.white,
     fontFamily: fontFamily,
   );
+  static TextStyle font18Bold = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsManager.white,
+    fontFamily: fontFamily,
+  );
+
+  static TextStyle font18Light = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeightHelper.light,
+    color: ColorsManager.white,
+    fontFamily: fontFamily,
+  );
+
+  static TextStyle font14Regular = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsManager.white,
+    fontFamily: fontFamily,
+  );
 }
