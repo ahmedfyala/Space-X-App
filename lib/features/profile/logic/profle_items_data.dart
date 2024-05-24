@@ -18,7 +18,7 @@ List<ProfileItemModel> profileItems = [
   ProfileItemModel(
     icon: Icons.people_rounded,
     title: AppStrings.ourTeam,
-    routeName: '',
+    routeName: Routes.developersTeam,
   ),
   ProfileItemModel(
     icon: Icons.logout_rounded,
