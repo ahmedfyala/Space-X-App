@@ -9,5 +9,5 @@ class Routes {
   static const String ships = "/ships";
   static const String allRockets = "/allRockets";
   static const String aboutCompany = "/aboutCompany";
-
+  static const String developersTeam = "/developersTeam";
 }

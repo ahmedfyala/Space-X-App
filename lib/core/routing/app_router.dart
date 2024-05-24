@@ -4,6 +4,7 @@ import 'package:flutter_mentorship_b1/features/authentication/logic/register/reg
 import 'package:flutter_mentorship_b1/features/authentication/logic/login/login_cubit.dart';
 import 'package:flutter_mentorship_b1/features/authentication/ui/login/login_screen.dart';
 import 'package:flutter_mentorship_b1/features/authentication/ui/register/register_screen.dart';
+import 'package:flutter_mentorship_b1/features/developers_team/ui/developers_team_screen.dart';
 import 'package:flutter_mentorship_b1/features/opening/screens/welcome/welcome_screen.dart';
 import 'package:flutter_mentorship_b1/features/profile/ui/profile_screen.dart';
 import 'package:flutter_mentorship_b1/features/rockets/logic/all_rockets_cubit.dart';
@@ -78,6 +79,10 @@ class AppRouter {
             create: (_) => getIt<CompanyCubit>()..getAboutCompany(),
             child: const AboutCompanyScreen(),
           ),
+        );
+      case Routes.developersTeam:
+        return MaterialPageRoute(
+          builder: (_) => const DevelopersTeamScreen(),
         );
       default:
         return MaterialPageRoute(
