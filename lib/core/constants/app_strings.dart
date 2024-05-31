@@ -51,4 +51,11 @@ class AppStrings {
   static const String ourTeam = 'Our Team';
   static const String logout = 'Logout';
   static const String team = 'Team';
+  static const String dragons = 'Dragons';
+  static const String viewDetails = 'View Details';
+  static const String status = 'Status';
+  static const String description = 'Description';
+  static const String firstFlight = 'First flight';
+  static const String dryMass = 'Dry mass';
+  static const String kg = 'KG';
 }
