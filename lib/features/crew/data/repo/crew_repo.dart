@@ -11,12 +11,11 @@ import '../../../../core/networking/network_info/network_info.dart';
 
 class CrewRepository {
   final ApiService apiService;
-  final NetworkInfo networkInfo;
 
-  CrewRepository({required this.apiService, required this.networkInfo});
+  CrewRepository({required this.apiService,});
 
   Future<Either<Failure, List<CrewMember>>> getCrew() async {
-    if (await networkInfo.isConnected) {
+    if (NetworkInfo.isConnected) {
       try {
         var response = await apiService.get(endPoint: ApiUrls.allCrew);
 
