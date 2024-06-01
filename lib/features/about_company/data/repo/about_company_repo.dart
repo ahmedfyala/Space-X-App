@@ -17,7 +17,7 @@ class AboutCompanyRepo {
   );
 
   Future<Either<Failure, AboutCompany>> getAboutCompany() async {
-    if (NetworkInfo.isConnected) {
+    if (await NetworkInfo.isConnected) {
       try {
         var response = await apiService.get(endPoint: ApiUrls.company);
         AboutCompany aboutCompany = AboutCompany.fromJson(response);

@@ -16,7 +16,7 @@ class AllRocketsRepo {
   });
 
   Future<Either<Failure, List<RocketModel>>> fetchAllRockets() async {
-    if (NetworkInfo.isConnected) {
+    if (await NetworkInfo.isConnected) {
       try {
         var response = await apiService.get(endPoint: ApiUrls.allRockets);
 
