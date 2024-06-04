@@ -10,12 +10,12 @@ import '../../../../core/helpers/enums.dart';
 
 class DragonsRepo {
   final ApiService apiService;
-  final NetworkInfo networkInfo;
-
-  DragonsRepo({required this.apiService, required this.networkInfo});
+  DragonsRepo({
+    required this.apiService,
+  });
 
   Future<Either<Failure, List<Dragon>>> fetchAllDragons() async {
-    if (await networkInfo.isConnected) {
+    if (await NetworkInfo.isConnected) {
       try {
         var response = await apiService.get(endPoint: ApiUrls.dragons);
 

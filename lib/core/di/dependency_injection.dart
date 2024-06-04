@@ -1,4 +1,3 @@
-import 'package:flutter_mentorship_b1/core/networking/network_info/network_info.dart';
 import 'package:flutter_mentorship_b1/features/about_company/logic/company_cubit.dart';
 import 'package:flutter_mentorship_b1/features/authentication/data/repo/auth_repo.dart';
 import 'package:flutter_mentorship_b1/features/authentication/logic/auth/auth_cubit.dart';
@@ -13,7 +12,6 @@ import 'package:flutter_mentorship_b1/features/rockets/logic/all_rockets_cubit.d
 
 import 'package:get_it/get_it.dart';
 import 'package:dio/dio.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 import '../../features/about_company/data/repo/about_company_repo.dart';
 import '../../features/dragons/data/repo/dragon_repo.dart';
@@ -28,19 +26,14 @@ final getIt = GetIt.instance;
 Future<void> setupGetIt() async {
   Dio dio = DioFactory.getDio();
 
-  InternetConnectionChecker connectionChecker = InternetConnectionChecker();
   // register api service
   getIt.registerLazySingleton<ApiService>(
     () => ApiService(dio),
-  );
-  getIt.registerLazySingleton<NetworkInfo>(
-    () => NetworkInfoImpl(connectionChecker),
   );
 
   // get all ships
   getIt.registerLazySingleton<ShipRepository>(
     () => ShipRepository(
-      getIt(),
       getIt(),
     ),
   );
@@ -52,13 +45,13 @@ Future<void> setupGetIt() async {
 
   // get all rockets
   getIt.registerLazySingleton<AllRocketsRepo>(
-      () => AllRocketsRepo(apiService: getIt(), networkInfo: getIt()));
+      () => AllRocketsRepo(apiService: getIt()));
   getIt.registerFactory<AllRocketsCubit>(
       () => AllRocketsCubit(allRocketsRepo: getIt()));
 
   // get all crew
   getIt.registerLazySingleton<CrewRepository>(
-      () => CrewRepository(apiService: getIt(), networkInfo: getIt()));
+      () => CrewRepository(apiService: getIt()));
   getIt.registerFactory<CrewCubit>(() => CrewCubit(getIt()));
 
   // auth
@@ -73,13 +66,13 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<ProfileCubit>(() => ProfileCubit());
 
   // get about company
-  getIt.registerLazySingleton<AboutCompanyRepo>(
-      () => AboutCompanyRepo(getIt(), getIt()));
+  getIt
+      .registerLazySingleton<AboutCompanyRepo>(() => AboutCompanyRepo(getIt()));
   getIt.registerFactory<CompanyCubit>(() => CompanyCubit(getIt()));
 
   // get all dragons
   getIt.registerLazySingleton<DragonsRepo>(
-      () => DragonsRepo(apiService: getIt(), networkInfo: getIt()));
+      () => DragonsRepo(apiService: getIt()));
   getIt.registerFactory<DragonCubit>(() => DragonCubit(getIt()));
 }
 

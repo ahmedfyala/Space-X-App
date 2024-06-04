@@ -11,12 +11,13 @@ import '../models/about_company_model.dart';
 
 class AboutCompanyRepo {
   final ApiService apiService;
-  final NetworkInfo networkInfo;
 
-  AboutCompanyRepo(this.apiService, this.networkInfo);
+  AboutCompanyRepo(
+    this.apiService,
+  );
 
   Future<Either<Failure, AboutCompany>> getAboutCompany() async {
-    if (await networkInfo.isConnected) {
+    if (await NetworkInfo.isConnected) {
       try {
         var response = await apiService.get(endPoint: ApiUrls.company);
         AboutCompany aboutCompany = AboutCompany.fromJson(response);

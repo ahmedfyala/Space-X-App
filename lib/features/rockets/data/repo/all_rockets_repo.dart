@@ -11,12 +11,12 @@ import '../../../../core/networking/api_service.dart';
 
 class AllRocketsRepo {
   final ApiService apiService;
-  final NetworkInfo networkInfo;
-
-  AllRocketsRepo({required this.apiService, required this.networkInfo});
+  AllRocketsRepo({
+    required this.apiService,
+  });
 
   Future<Either<Failure, List<RocketModel>>> fetchAllRockets() async {
-    if (await networkInfo.isConnected) {
+    if (await NetworkInfo.isConnected) {
       try {
         var response = await apiService.get(endPoint: ApiUrls.allRockets);
 

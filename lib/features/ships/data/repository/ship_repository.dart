@@ -11,12 +11,13 @@ import '../models/ship_model.dart';
 
 class ShipRepository {
   final ApiService apiService;
-  final NetworkInfo networkInfo;
 
-  ShipRepository(this.apiService, this.networkInfo);
+  ShipRepository(
+    this.apiService,
+  );
 
   Future<Either<Failure, List<ShipModel>>> getAllShips() async {
-    if (await networkInfo.isConnected) {
+    if (await NetworkInfo.isConnected) {
       try {
         final response =
             await apiService.get(endPoint: ApiUrls.allShips) as List;
