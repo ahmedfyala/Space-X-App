@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_mentorship_b1/core/constants/app_assets.dart';
 
 import '../../../core/constants/app_strings.dart';
 import '../../../core/routing/routes.dart';
@@ -6,18 +6,23 @@ import '../models/category_model.dart';
 
 List<CategoryModel> categories = [
   CategoryModel(
-    icon: Icons.rocket_launch_rounded,
+    image: AppImages.rocketCategory,
     text: AppStrings.rockets,
     routeName: Routes.allRockets,
   ),
   CategoryModel(
-    icon: Icons.directions_boat_filled_rounded,
+    image: AppImages.shipsCategory,
     text: AppStrings.ships,
     routeName: Routes.ships,
   ),
   CategoryModel(
-    icon: Icons.rocket_launch_outlined,
+    image: AppImages.dragonsCategory,
     text: AppStrings.dragons,
     routeName: Routes.dragons,
+  ),
+  CategoryModel(
+    image: AppImages.launchesCategory,
+    text: AppStrings.launches,
+    routeName: Routes.launches,
   ),
 ];
