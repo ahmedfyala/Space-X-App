@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mentorship_b1/core/themes/size_manager.dart';
 import 'package:flutter_mentorship_b1/core/themes/styles.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'colors_manager.dart';
 
@@ -28,26 +27,26 @@ ThemeData getApplicationTheme() {
       iconTheme: const IconThemeData(color: ColorsManager.white),
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: ColorsManager.lightBlack,
-        labelTextStyle: MaterialStateProperty.resolveWith<TextStyle>(
-          (Set<MaterialState> states) => states.contains(MaterialState.selected)
+        labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>(
+          (Set<WidgetState> states) => states.contains(WidgetState.selected)
               ? const TextStyle(color: ColorsManager.primary)
               : const TextStyle(color: ColorsManager.white),
         ),
-        iconTheme: MaterialStateProperty.resolveWith<IconThemeData>(
-          (Set<MaterialState> states) => states.contains(MaterialState.selected)
+        iconTheme: WidgetStateProperty.resolveWith<IconThemeData>(
+          (Set<WidgetState> states) => states.contains(WidgetState.selected)
               ? const IconThemeData(color: ColorsManager.primary)
               : const IconThemeData(color: ColorsManager.white),
         ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+            backgroundColor: WidgetStateProperty.resolveWith<Color?>(
               (states) => ColorsManager.primary,
             ),
-            textStyle: MaterialStateProperty.resolveWith<TextStyle?>(
+            textStyle: WidgetStateProperty.resolveWith<TextStyle?>(
               (states) => TextStyles.font16Bold,
             ),
-            shape: MaterialStateProperty.all(
+            shape: WidgetStateProperty.all(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(AppRadius.r10),
               ),
@@ -88,7 +87,7 @@ ThemeData getApplicationTheme() {
       ),
       textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
-        textStyle: MaterialStatePropertyAll<TextStyle>(
+        textStyle: WidgetStatePropertyAll<TextStyle>(
           TextStyles.font12Regular,
         ),
       )));
