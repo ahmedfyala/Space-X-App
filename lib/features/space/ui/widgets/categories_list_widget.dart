@@ -4,29 +4,32 @@ import 'package:flutter_mentorship_b1/features/space/ui/widgets/categories_item_
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/routing/routes.dart';
+import '../../logic/category_data.dart';
 import '../../models/category_model.dart';
 
 class CategoriesListWidget extends StatelessWidget {
-  final List<CategoryModel> categories;
 
   const CategoriesListWidget({
     super.key,
-    required this.categories,
   });
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 72.h,
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => CategoriesItemWidget(
-          categoryModel: categories[index],
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
+            childAspectRatio: 1.05,
+          ),
+          itemBuilder: (context, index) =>
+              CategoriesItemWidget(categoryModel: categories[index]),
+          itemCount: categories.length,
+          physics: const NeverScrollableScrollPhysics(),
         ),
-        separatorBuilder: (context, index) => SizedBox(
-          width: 30.w,
-        ),
-        itemCount: categories.length,
       ),
     );
   }
