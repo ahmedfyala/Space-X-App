@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mentorship_b1/core/helpers/extensions.dart';
 import 'package:flutter_mentorship_b1/features/space/ui/widgets/categories_item_widget.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/routing/routes.dart';
 import '../../logic/category_data.dart';
-import '../../models/category_model.dart';
 
 class CategoriesListWidget extends StatelessWidget {
 
