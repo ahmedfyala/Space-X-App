@@ -6,6 +6,7 @@ class ApiUrls {
   static const String allCrew = "crew";
   static const String company = "company";
   static const String dragons = "dragons";
+  static const String launches = "launches";
 }
 
 class ApiErrors {
