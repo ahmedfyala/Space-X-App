@@ -16,6 +16,8 @@ import 'package:dio/dio.dart';
 import '../../features/about_company/data/repo/about_company_repo.dart';
 import '../../features/dragons/data/repo/dragon_repo.dart';
 import '../../features/dragons/logic/dragon_cubit.dart';
+import '../../features/launches/data/repo/launches_repo.dart';
+import '../../features/launches/logic/launches_cubit.dart';
 import '../../features/profile/logic/profile_cubit.dart';
 import '../../features/ships/data/repository/ship_repository.dart';
 import '../networking/api_service.dart';
@@ -74,6 +76,11 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<DragonsRepo>(
       () => DragonsRepo(apiService: getIt()));
   getIt.registerFactory<DragonCubit>(() => DragonCubit(getIt()));
+
+  // launches
+  getIt.registerLazySingleton<LaunchesRepo>(
+          () => LaunchesRepo(apiService: getIt()));
+  getIt.registerFactory<LaunchesCubit>(() => LaunchesCubit(getIt()));
 }
 
 Future<void> initAuthFeature() async {
