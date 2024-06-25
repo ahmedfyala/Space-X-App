@@ -6,6 +6,8 @@ import 'package:flutter_mentorship_b1/features/authentication/ui/login/login_scr
 import 'package:flutter_mentorship_b1/features/authentication/ui/register/register_screen.dart';
 import 'package:flutter_mentorship_b1/features/developers_team/ui/developers_team_screen.dart';
 import 'package:flutter_mentorship_b1/features/dragons/data/models/dragon_model.dart';
+import 'package:flutter_mentorship_b1/features/launches/logic/launches_cubit.dart';
+import 'package:flutter_mentorship_b1/features/launches/ui/launches_screen.dart';
 import 'package:flutter_mentorship_b1/features/opening/screens/welcome/welcome_screen.dart';
 import 'package:flutter_mentorship_b1/features/profile/ui/profile_screen.dart';
 import 'package:flutter_mentorship_b1/features/rockets/logic/all_rockets_cubit.dart';
@@ -100,6 +102,13 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => DragonsDetails(
             dragon: dragon,
+          ),
+        );
+      case Routes.launches:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<LaunchesCubit>()..getLaunches(),
+            child: const LaunchesScreen(),
           ),
         );
       default:
