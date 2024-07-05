@@ -74,11 +74,6 @@ class LoginFormWidget extends StatelessWidget {
           Gap(AppHeight.h20),
           BlocBuilder<LoginCubit, LoginState>(
             builder: (context, state) {
-              if (state is LoginLoading) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
               return AppButtonWidget(
                 height: AppHeight.h40,
                 width: double.infinity,
@@ -87,6 +82,7 @@ class LoginFormWidget extends StatelessWidget {
                 onPressed: () {
                   context.read<LoginCubit>().login();
                 },
+                isLoading: state is LoginLoading,
               );
             },
           ),

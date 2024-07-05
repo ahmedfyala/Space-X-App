@@ -9,14 +9,16 @@ class AppButtonWidget extends StatelessWidget {
   final String title;
   final void Function()? onPressed;
   final TextStyle? textStyle;
+  bool isLoading;
 
-  const AppButtonWidget({
+  AppButtonWidget({
     super.key,
     this.height = 40,
     this.width = double.infinity,
     required this.title,
     this.onPressed,
     this.textStyle,
+    this.isLoading = false,
   });
 
   @override
@@ -26,10 +28,19 @@ class AppButtonWidget extends StatelessWidget {
       width: width.w,
       child: ElevatedButton(
         onPressed: onPressed,
-        child: Text(
-          title,
-          style: textStyle ?? TextStyles.font16Bold,
-        ),
+        child: isLoading
+            ? const SizedBox(
+                height: 25,
+                width: 25,
+                child: CircularProgressIndicator(
+                  color: Colors.white,
+                  strokeWidth: 3,
+                ),
+              )
+            : Text(
+                title,
+                style: textStyle ?? TextStyles.font16Bold,
+              ),
       ),
     );
   }
