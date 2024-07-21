@@ -12,7 +12,7 @@ class HeaderWidget extends StatelessWidget {
     return Stack(
       alignment: Alignment.centerLeft,
       children: [
-        Image.network(
+        Image.asset(
           AppImages.homeImage,
           height: MediaQuery.of(context).size.height * 0.3,
           width: double.infinity,
