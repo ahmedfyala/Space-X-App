@@ -134,14 +134,12 @@ class RegisterFormWidget extends StatelessWidget {
             verticalSpace(20.h),
             BlocBuilder<RegisterCubit, RegisterState>(
               builder: (context, state) {
-                if (state is RegisterLoading) {
-                  return const Center(child: CircularProgressIndicator());
-                }
                 return AppButtonWidget(
                   title: AppStrings.signUp,
                   onPressed: () {
                     context.read<RegisterCubit>().register();
                   },
+                  isLoading: state is RegisterLoading,
                 );
               },
             ),
