@@ -5,11 +5,11 @@ import 'package:flutter_mentorship_b1/features/profile/data/models/profile_item_
 import '../../../core/routing/routes.dart';
 
 List<ProfileItemModel> profileItems = [
-  ProfileItemModel(
-    icon: Icons.favorite_rounded,
-    title: AppStrings.favorite,
-    routeName: '',
-  ),
+  // ProfileItemModel(
+  //   icon: Icons.favorite_rounded,
+  //   title: AppStrings.favorite,
+  //   routeName: '',
+  // ),
   ProfileItemModel(
     icon: Icons.business_rounded,
     title: AppStrings.aboutCompany,
