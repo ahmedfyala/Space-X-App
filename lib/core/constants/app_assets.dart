@@ -24,8 +24,7 @@ class AppImages {
       'https://static.vecteezy.com/system/resources/previews/020/122/559/original/black-silhouette-of-rocket-launch-free-vector.jpg';
   static const String launchesCategory =
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLXe1P3LdSK73PQMvZIo6fXOXBrGSPEKi3EQ&s';
-  static const String homeImage =
-      'https://mrwallpaper.com/images/hd/astronaut-aesthetic-with-sunflowers-97v57ltgcfkqicpn.jpg';
+  static const String homeImage = '${AssetsPaths.images}/background.jpg';
 }
 
 class AppPng {
