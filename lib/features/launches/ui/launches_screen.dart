@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_mentorship_b1/core/widgets/loading_widget.dart';
 
 import '../../../core/constants/app_strings.dart';
 import '../../../core/themes/styles.dart';
@@ -21,9 +22,7 @@ class LaunchesScreen extends StatelessWidget {
       body:
           BlocBuilder<LaunchesCubit, LaunchesState>(builder: (context, state) {
         if (state is LaunchesLoading) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+          return const LoadingWidget();
         } else if (state is LaunchesLoaded) {
           return LaunchesLoadedWidget(launches: state.launches);
         }

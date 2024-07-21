@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_mentorship_b1/core/widgets/loading_widget.dart';
 import 'package:flutter_mentorship_b1/features/about_company/ui/widgets/company_loaded_widget.dart';
 
 import '../../../core/themes/styles.dart';
@@ -22,9 +23,7 @@ class AboutCompanyScreen extends StatelessWidget {
         child: BlocBuilder<CompanyCubit, CompanyState>(
           builder: (context, state) {
             if (state is CompanyLoading) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
+              return const LoadingWidget();
             }
             if (state is CompanyError) {
               return Center(
