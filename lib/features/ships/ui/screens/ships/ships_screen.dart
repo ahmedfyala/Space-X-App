@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mentorship_b1/core/helpers/extensions.dart';
 import 'package:flutter_mentorship_b1/core/routing/routes.dart';
 import 'package:flutter_mentorship_b1/core/themes/size_manager.dart';
+import 'package:flutter_mentorship_b1/core/widgets/loading_widget.dart';
 import 'package:flutter_mentorship_b1/features/ships/data/models/ship_model.dart';
 import 'package:flutter_mentorship_b1/features/ships/logic/cubit.dart';
 import 'package:flutter_mentorship_b1/features/ships/logic/states.dart';
@@ -36,9 +37,7 @@ class _ShipsScreenState extends State<ShipsScreen> {
         body: BlocBuilder<ShipCubit, ShipStates>(
           builder: (context, state) {
             if (state.shipStatus.isLoading) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
+              return const LoadingWidget();
             }
             if (state.shipStatus.isError) {
               return Center(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mentorship_b1/core/constants/app_strings.dart';
+import 'package:flutter_mentorship_b1/core/widgets/loading_widget.dart';
 import 'package:flutter_mentorship_b1/features/dragons/logic/dragon_cubit.dart';
 
 import '../../../core/themes/styles.dart';
@@ -22,7 +23,7 @@ class DragonsScreen extends StatelessWidget {
         builder: (context, state) {
           if (state is DragonLoading) {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: LoadingWidget(),
             );
           } else if (state is DragonLoaded) {
             return DragonsLoadedWidget(dragons: state.dragons);

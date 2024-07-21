@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mentorship_b1/core/constants/app_strings.dart';
 import 'package:flutter_mentorship_b1/core/themes/styles.dart';
+import 'package:flutter_mentorship_b1/core/widgets/loading_widget.dart';
 import 'package:flutter_mentorship_b1/features/rockets/ui/widgets/no_rockets_founded_widget.dart';
 import 'package:flutter_mentorship_b1/features/rockets/ui/widgets/rockets_list_widget.dart';
 
@@ -37,9 +38,7 @@ class RocketsScreen extends StatelessWidget {
                 return RocketsListWidget(rockets: state.rockets);
               }
             } else {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
+              return const LoadingWidget();
             }
           },
         ),
