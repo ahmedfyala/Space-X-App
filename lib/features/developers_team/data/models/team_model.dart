@@ -20,7 +20,7 @@ List<TeamModel> team = [
   TeamModel(
     name: 'Hossam Kheder',
     linkedin: 'https://www.linkedin.com/in/hossamkheder/',
-    github: 'https://github.com/HossamKheder',
+    github: 'https://github.com/hossam-khedr',
     image: 'https://avatars.githubusercontent.com/u/105512227?v=4',
   ),
 ];
