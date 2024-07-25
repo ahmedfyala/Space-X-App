@@ -1,0 +1,30 @@
+enum HttpStatusCodeEnum{
+  ok,//200
+  created,//201
+  accepted,//202
+  noContent,//204
+  partialContent,//206
+  movedPermanently,//301
+  found,//302
+  seeOther,//303
+  notModified,//304
+  badRequest,//400
+  unauthorized,//401
+  forBidden,//403
+  notFound,//404
+  methodNotAllowed,//405
+  notAcceptable,//406
+  conflict,//409
+  payloadToLarge,//413
+  internalServerError,//500
+  badGatWay,//502
+  serverUnavailable,//503
+  gatewayTimeout,//504
+  connectionTimeout,//408
+  sendTimeout,
+  receiveTimeout,
+  badCertificate,
+  noInternetConnection,
+  unknown,
+
+}

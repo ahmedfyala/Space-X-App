@@ -2,6 +2,11 @@ class ApiUrls {
   static const String baseUrl = "https://api.spacexdata.com/v4/";
 
   static const String allRockets = "rockets";
+  static const String allShips = "ships";
+  static const String allCrew = "crew";
+  static const String company = "company";
+  static const String dragons = "dragons";
+  static const String launches = "launches";
 }
 
 class ApiErrors {
